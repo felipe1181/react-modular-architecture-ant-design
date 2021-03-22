@@ -1,3 +1,0 @@
-# Collabits
-
-Projeto frontend collabits
