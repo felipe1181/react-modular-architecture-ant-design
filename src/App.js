@@ -1,25 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import 'styles/global/App.css'
+import { BrowserRouter } from 'react-router-dom'
+import routesList from 'routes'
+import renderRoutes from 'routes/renderRoutes'
+import { SessionProvider } from 'context/baseRoutes/context/SessionContext'
+import { LoadingProvider } from 'context/load/context'
 
-function App() {
+import ReactNotification from 'react-notifications-component'
+
+function App () { 
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <>
+        <SessionProvider>
+          <LoadingProvider>
+            <ReactNotification />
+            <BrowserRouter>
+              {renderRoutes(routesList)}
+            </BrowserRouter>
+          </LoadingProvider>
+        </SessionProvider>
+    </>
+  )
 }
 
-export default App;
+export default App
