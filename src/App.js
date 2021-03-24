@@ -8,17 +8,17 @@ import { LoadingProvider } from 'context/load/context'
 
 import ReactNotification from 'react-notifications-component'
 
-function App () { 
+function App () {
   return (
     <>
-        <SessionProvider>
-          <LoadingProvider>
-            <ReactNotification />
-            <BrowserRouter>
-              {renderRoutes(routesList)}
-            </BrowserRouter>
-          </LoadingProvider>
-        </SessionProvider>
+      <SessionProvider>
+        <LoadingProvider>
+          <ReactNotification />
+          <BrowserRouter>
+            {renderRoutes(routesList)}
+          </BrowserRouter>
+        </LoadingProvider>
+      </SessionProvider>
     </>
   )
 }
