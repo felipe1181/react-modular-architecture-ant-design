@@ -4,29 +4,29 @@ import Input from 'components/form/input'
 import InputPassword from 'components/form/inputPassword'
 import Button from 'components/form/button'
 import Accounts from 'components/accounts'
-import services  from 'views/auth/services'
+import services from 'views/auth/services'
 import { session } from 'api/helpers/storage/localStorage'
 import { validationsLogin } from 'views/auth/validations'
-import { Form } from 'antd';
+import { Form, Row, Col } from 'antd'
 import PropTypes from 'prop-types'
-import { Row,Col } from 'antd';
+
 const layout = {
   labelCol: {
-    span: 8,
+    span: 8
   },
   wrapperCol: {
-    span: 16,
-  },
-};
+    span: 16
+  }
+}
 const tailLayout = {
   wrapperCol: {
     offset: 8,
-    span: 16,
-  },
-};
+    span: 16
+  }
+}
 
 function Login ({ history }) {
-  const formik = useFormik({ 
+  const formik = useFormik({
     validationSchema: validationsLogin,
     onSubmit
   })
@@ -45,46 +45,45 @@ function Login ({ history }) {
     }
   }
 
-  return (   
+  return (
     <Row>
-      <Col style={{marginTop:'40vh'}} span={6} offset={8}>
-      <Accounts>
-                    <Form
-                      {...layout}
-                      name="basic"
-                      initialValues={{
-                        remember: false,
-                        email:'',
-                        password:'',
-                      }}
-                      onFinish={onSubmit} 
-                    >
-                      <Form.Item
-                          help={formik.touched.email && Boolean(formik.errors.email)}
-                          validateStatus={formik.touched.email && formik.errors.email}
-                        label="Email"
-                        name="email"
-                      >
-                        <Input />
-                      </Form.Item>
+      <Col style={{ marginTop: '40vh' }} span={6} offset={8}>
+        <Accounts>
+          <Form
+            {...layout}
+            name='basic'
+            initialValues={{
+              remember: false,
+              email: '',
+              password: ''
+            }}
+            onFinish={onSubmit}
+          >
+            <Form.Item
+              help={formik.touched.email && Boolean(formik.errors.email)}
+              validateStatus={formik.touched.email && formik.errors.email}
+              label='Email'
+              name='email'
+            >
+              <Input />
+            </Form.Item>
 
-                    <Form.Item
-                      help={formik.touched.password && Boolean(formik.errors.password)}
-                      validateStatus={formik.touched.password && formik.errors.password}
-                        label="Senha"
-                        name="password"
-                      >
-                        <InputPassword />
-                      </Form.Item>
-                  
-                      <Form.Item {...tailLayout}>
-                        <Button type="primary" htmlType="submit">
-                          Entrar
-                        </Button>
-                      </Form.Item>
-                    </Form> 
-                  </Accounts> 
-  
+            <Form.Item
+              help={formik.touched.password && Boolean(formik.errors.password)}
+              validateStatus={formik.touched.password && formik.errors.password}
+              label='Senha'
+              name='password'
+            >
+              <InputPassword />
+            </Form.Item>
+
+            <Form.Item {...tailLayout}>
+              <Button type='primary' htmlType='submit'>
+                Entrar
+              </Button>
+            </Form.Item>
+          </Form>
+        </Accounts>
       </Col>
     </Row>
   )
@@ -93,4 +92,3 @@ Login.propTypes = {
   history: PropTypes.any
 }
 export default Login
-

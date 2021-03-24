@@ -3,14 +3,24 @@ import services from 'api'
 export default {
   async login ({ email, password }, reference) {
     try {
-      return await services.create('/authenticate', { email, password }, 'Login realizado com sucesso', reference)
+      return await services.create(
+        '/authenticate',
+        { email, password },
+        'Login realizado com sucesso',
+        reference
+      )
     } catch (error) {
       return false
     }
   },
   async resetPassword ({ email }, reference) {
     try {
-      return await services.create('/reset_password', { email }, 'Email enviado com sucesso', reference)
+      return await services.create(
+        '/reset_password',
+        { email },
+        'Email enviado com sucesso',
+        reference
+      )
     } catch (error) {
       return false
     }

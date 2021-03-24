@@ -1,5 +1,5 @@
 {
-  "name": "collabits-frontend",
+  "name": "boilerplate-modules-react",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -59,7 +59,7 @@
     "eslint": "^7.22.0",
     "eslint-config-prettier": "^8.1.0",
     "eslint-plugin-react": "^7.22.0",
-    "husky": "^5.2.0",
+    "husky": "4.2.5",
     "lint-staged": "^10.5.4",
     "postcss-cli": "^8.3.1",
     "prettier": "^2.2.1",
